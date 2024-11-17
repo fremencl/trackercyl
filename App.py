@@ -15,7 +15,7 @@ def get_gsheet_data():
         client = gspread.authorize(credentials)
         
         # Abrir la hoja de cálculo y obtener los datos
-        sheet = client.open("Facturas Clientes").worksheet("Hoja 1")
+        sheet = client.open("TRAZABILIDAD").worksheet("PROCESO")
         data = sheet.get_all_records()
         
         # Retornar los datos como un DataFrame de pandas
