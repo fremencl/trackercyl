@@ -8,8 +8,11 @@ def get_gsheet_data():
         # Cargar las credenciales desde los secretos de Streamlit
         creds_dict = st.secrets["gcp_service_account"]
         
-        # Autenticar usando google.oauth2.service_account
-        credentials = service_account.Credentials.from_service_account_info(creds_dict)
+        # Definir los scopes necesarios
+        scopes = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
+
+        # Crear las credenciales con los scopes especificados
+        credentials = service_account.Credentials.from_service_account_info(creds_dict, scopes=scopes)
         
         # Conectar con gspread usando las credenciales
         client = gspread.authorize(credentials)
