@@ -48,7 +48,7 @@ target_cylinder = st.text_input("Ingrese la ID del cilindro a buscar:")
 if st.button("Buscar"):
     if target_cylinder:
         # Filtrar las transacciones asociadas a la ID de cilindro
-        ids_procesos = df_detalle[df_detalle["ID_CILINDRO"] == target_cylinder]["IDPROC"]
+        ids_procesos = df_detalle[df_detalle["SERIE"] == target_cylinder]["IDPROC"]
         df_resultados = df_proceso[df_proceso["IDPROC"].isin(ids_procesos)]
 
         # Mostrar los resultados
